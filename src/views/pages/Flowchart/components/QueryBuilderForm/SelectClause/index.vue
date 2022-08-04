@@ -53,7 +53,7 @@ export default {
 
     handleTableColumnSelectionChange(val) {
       console.log("handleChange", val)
-
+      
       this.$emit("change", val);
     }
   },
