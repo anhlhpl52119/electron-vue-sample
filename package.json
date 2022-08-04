@@ -1,0 +1,81 @@
+{
+  "name": "migration-tool",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "lint": "vue-cli-service lint",
+    "start": "npx sequelize-cli db:migrate && vue-cli-service electron:serve",
+    "electron:build": "vue-cli-service electron:build",
+    "build:win": "vue-cli-service electron:build --windows ",
+    "build:ubun": "vue-cli-service electron:build --linux deb",
+    "build:macos": "vue-cli-service electron:build --macos",
+    "electron:serve": "vue-cli-service electron:serve",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps",
+    "db:migrate": "npx sequelize-cli db:migrate",
+    "db:migrate:prod": "npx sequelize-cli db:migrate --env production",
+    "db:seed": "npx sequelize-cli db:seed:all",
+    "db:migration:generate": "npx sequelize-cli migration:generate --name "
+  },
+  "main": "background.js",
+  "dependencies": {
+    "@ant-design/icons-vue": "^6.0.1",
+    "@antv/x6": "^1.31.0",
+    "@antv/x6-vue-shape": "^1.3.1",
+    "@electron/remote": "^2.0.1",
+    "axios": "^0.24.0",
+    "cheerio": "^1.0.0-rc.10",
+    "core-js": "^3.6.5",
+    "csv": "^6.0.5",
+    "nprogress": "^0.2.0",
+    "pg-hstore": "^2.3.4",
+    "query-builder-vue": "^1.2.0",
+    "sequelize": "^6.9.0",
+    "smart-webcomponents": "^13.1.1",
+    "sqlite3": "^5.0.2",
+    "uuid": "^8.3.2",
+    "vue": "^3.0.0",
+    "vue-query-builder": "^0.8.2",
+    "vue-router": "^4.0.12",
+    "vue-sweetalert2": "^5.0.2",
+    "vuex": "^4.0.2",
+    "xlsx": "^0.17.4"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "ant-design-vue": "^2.2.8",
+    "babel-eslint": "^10.1.0",
+    "electron": "^15.3.1",
+    "electron-devtools-installer": "^3.2.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^7.0.0",
+    "sequelize-cli": "^6.3.0",
+    "vue-cli-plugin-electron-builder": "~2.1.1",
+    "worker-loader": "^3.0.8",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.2"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

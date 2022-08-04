@@ -1,0 +1,3 @@
+<template>
+  <router-vue />
+</template>
