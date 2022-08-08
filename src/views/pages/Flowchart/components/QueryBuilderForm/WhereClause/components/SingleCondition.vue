@@ -96,8 +96,7 @@ export default {
     },
     value: {
       type: Object,
-      default: () => {
-      },
+      default: () => {},
     },
   },
   emits: ["removeCondition", "change"],
