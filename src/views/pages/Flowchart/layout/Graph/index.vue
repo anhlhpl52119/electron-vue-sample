@@ -531,6 +531,12 @@ export default {
 
 #graph-container:deep() {
   height: 100%;
+  // width: 20%;
+  // display: inline-block;
+  // border: 1px solid #a8a8a8;
+  // flex: 0 0 calc(100% - 240px - 240px);
+  // flex-grow: 0;
+  // flex-shrink: 0;
   flex-grow: 1;
 
   .x6-widget-transform {

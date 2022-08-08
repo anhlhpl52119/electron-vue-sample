@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <a-typography-title class="header-text" :level="4">
+    <a-typography-title
+      class="header-text"
+      :level="4"
+    >
       Flow Designs
     </a-typography-title>
     <a-divider
@@ -8,7 +11,11 @@
       orientation-margin="50px"
     />
 
-    <a-button type="dashed" block @click="handleAddBtnClick">
+    <a-button
+      type="dashed"
+      block
+      @click="handleAddBtnClick"
+    >
       <template #icon>
         <plus-outlined :style="{ fontSize: '16px' }" />
       </template>
@@ -40,8 +47,14 @@
             >
               <template #content>
                 <span style="display: flex">
-                  <a-input v-model:value="item.name" placeholder="Flow name" />
-                  <a-button type="primary" @click="handleItemChange(item)">
+                  <a-input
+                    v-model:value="item.name"
+                    placeholder="Flow name"
+                  />
+                  <a-button
+                    type="primary"
+                    @click="handleItemChange(item)"
+                  >
                     <template #icon><SaveOutlined /></template>
                   </a-button>
                 </span>
@@ -168,6 +181,7 @@ export default {
   text-align: center;
   margin: 5px;
 }
+
 
 .menu-wrapper {
   flex: 1;

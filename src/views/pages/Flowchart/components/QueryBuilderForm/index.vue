@@ -1,19 +1,25 @@
 <template>
   <div>
-    <a-form name="basic" layout="vertical" autocomplete="off">
-      <a-form-item label="Name" required>
-        <a-input :value="formData.code" @change="handleCodeChange" />
+    <a-form
+      name="basic"
+      layout="vertical"
+      autocomplete="off"
+    >
+      <a-form-item
+        label="Name"
+        required
+      >
+        <a-input
+          :value="formData.code"
+          @change="handleCodeChange"
+        />
       </a-form-item>
     </a-form>
 
-    <a-collapse 
-      v-model:activeKey="collapseActiveKeys" 
-      :bordered="false"
-    >
-      <a-collapse-panel 
-        key="1" 
-        header="Data Source" 
-        class="include-test"
+    <a-collapse v-model:activeKey="collapseActiveKeys">
+      <a-collapse-panel
+        key="1"
+        header="Data Source"
       >
         <div>
           <FromClause
@@ -42,7 +48,6 @@
       <a-collapse-panel
         key="2"
         header="Column"
-        class="include-test"
       >
         <div class="select-clause-container">
           <SelectClause
@@ -53,7 +58,10 @@
           />
         </div>
       </a-collapse-panel>
-      <a-collapse-panel key="3" header="Condition">
+      <a-collapse-panel
+        key="3"
+        header="Condition"
+      >
         <div>
           <WhereClause
             v-model:value="formData.where"
@@ -62,7 +70,10 @@
           />
         </div>
       </a-collapse-panel>
-      <a-collapse-panel key="6" header="Sort">
+      <a-collapse-panel
+        key="6"
+        header="Sort"
+      >
         <div>
           <OrderByClause
             v-model:value="formData.orderBy"
@@ -70,12 +81,18 @@
           />
         </div>
       </a-collapse-panel>
-      <a-collapse-panel key="7" header="Remove Duplicate">
+      <a-collapse-panel
+        key="7"
+        header="Remove Duplicate"
+      >
         <div>
           <RemoveDuplicate />
         </div>
       </a-collapse-panel>
-      <a-collapse-panel key="8" header="Group By">
+      <a-collapse-panel
+        key="8"
+        header="Group By"
+      >
         <div>
           <GroupByClause />
         </div>
@@ -90,7 +107,7 @@ import FromClause from "./FromClause";
 import WhereClause from "./WhereClause";
 import OrderByClause from "./OrderByClause";
 import RemoveDuplicate from "./RemoveDuplicate";
-import GroupByClause from "./GroupByClause";
+import GroupByClause from "./GroupByClause"
 
 export default {
   components: {
@@ -99,7 +116,7 @@ export default {
     WhereClause,
     OrderByClause,
     RemoveDuplicate,
-    GroupByClause,
+    GroupByClause
   },
   props: {
     selectedNode: {
@@ -167,7 +184,7 @@ export default {
     chosenNodeDatas() {
       // update select field
       const chosenNodeDataCodes = this.chosenNodeDatas.map(
-        (nodeData) => nodeData.code
+          (nodeData) => nodeData.code
       );
       this.formData.select = this.formData.select.filter((selectField) => {
         return chosenNodeDataCodes.includes(selectField.table);
@@ -182,7 +199,7 @@ export default {
 
   methods: {
     handleSelectClauseChange: function (select) {
-      this.formData.select = select;
+      this.formData.select = select
     },
 
     handleFromClauseChange: function (fromClauseData) {
@@ -219,12 +236,13 @@ export default {
       };
     },
 
+
     setChosenNodeData() {
-      const { from, join } = this.formData;
+      const {from, join} = this.formData;
       this.chosenNodeDatas = this.nearestSourceNodes.reduce((result, node) => {
         if (
-          from?.code === node.data.code ||
-          join?.sources?.map((source) => source.code).includes(node.data.code)
+            from?.code === node.data.code ||
+            join?.sources?.map((source) => source.code).includes(node.data.code)
         ) {
           return [...result, node.data];
         }
@@ -242,12 +260,4 @@ export default {
   },
 };
 </script>
-<style scoped>
-.include-test {
-  background: #cad894;
-  border-radius: 8px;
-  margin-bottom: 24px;
-  border: 2px;
-  overflow: hidden;
-}
-</style>
+<style scoped></style>
